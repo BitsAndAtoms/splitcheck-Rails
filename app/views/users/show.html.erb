@@ -1,0 +1,64 @@
+<div class="container container-table">
+  <div class="text-center col-md-4 col-md-offset-4" >
+    <h2>User summary</h2>
+  </div>
+</div>
+
+
+<div class="container container-table">
+  <div class="text-center col-md-4 col-md-offset-4" >
+  <h3><i>for</i></h3><br>
+  <h4><strong><%= @user.email %></strong></h4>
+  
+  <div class="row">
+    <div class="col">
+     <hr>
+    </div>
+    <div class="col-auto">
+     <strong>Comments:</strong>
+    </div>
+      <%= render @user.comments %>
+    <div class="col">
+      <hr>
+    </div>
+  </div>
+  
+  
+<div class="row">
+
+
+   <div class="col-auto">
+     <strong>Votes:</strong>
+   </div>
+   
+   <%= render @user.votes %>
+      
+
+ </div>
+
+  <div class="row">
+    <div class="col">
+     <hr>
+    </div>
+    
+    <div class="col-auto">
+     <strong>Favorites:</strong>
+    </div>
+    
+     <%= render @user.favorites %>
+    
+    <div class="col">
+      <hr>
+    </div>
+  </div>
+
+   </div>
+</div>
+
+
+<div class="d-inline mx-auto center">
+   <%= link_to 'Main page', restaurants_path %>
+</div>
+
+<br>
+<br>

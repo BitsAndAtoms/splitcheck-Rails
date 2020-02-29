@@ -1,0 +1,7 @@
+<br>
+   <div class="media-body">
+           Favourited restaurant <strong>"<u><%= link_to "#{Restaurant.find(favorite.restaurant_id).title}", Restaurant.find(favorite.restaurant_id) %></u>"</strong>      
+           <em><%= time_ago_in_words(favorite.created_at) %> ago</em>  
+   </div>
+
+

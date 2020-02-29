@@ -1,0 +1,14 @@
+ <% if vote.value == 1 %>
+ <br>
+  <div> Upvoted restaurant <strong>"<u><%= link_to "#{Restaurant.find(vote.restaurant_id).title}", Restaurant.find(vote.restaurant_id) %></u>"</strong>      
+           <em><%= time_ago_in_words(vote.updated_at) %> ago</em>
+  </div> 
+<% end %> 
+
+<% if vote.value == -1 %>
+ <br> 
+       <div> Downvoted restaurant <strong>"<u><%= link_to "#{Restaurant.find(vote.restaurant_id).title}", Restaurant.find(vote.restaurant_id) %></u>"</strong>      
+           <em><%= time_ago_in_words(vote.updated_at) %> ago</em>
+  </div>       
+<% end %>
+

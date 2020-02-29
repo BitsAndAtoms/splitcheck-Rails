@@ -1,0 +1,45 @@
+<div class="container container-table">
+  <div class="text-center col-md-4 col-md-offset-4" >
+    <h1>Restaurant Information</h1>
+  </div>
+</div>
+
+<div class="container container-table">
+  <div class="text-center col-md-4 col-md-offset-4" >
+  
+      <p id="notice"><%= notice %></p>
+      <strong>Title:</strong>
+      <%= @restaurant.title %>
+      <br>
+      <strong>Location:</strong>
+      <%= @restaurant.location %>
+      <br><br>
+      <strong> Times downvoted:</strong>
+      <%= @restaurant.down_votes %>
+      <br>
+      <strong>Times upvoted:</strong>
+      <%= @restaurant.up_votes %>
+      <br><br>
+  
+  <div class="row">
+    <div class="col">
+     <hr>
+    </div>
+    <div class="col-auto">
+     <strong>Comments:</strong>
+    </div>
+      <%= render @restaurant.comments %>
+    <div class="col">
+      <hr>
+    </div>
+  </div>
+   
+   </div>
+</div>
+
+<div class="d-inline mx-auto center">
+   <%= link_to 'Main page', restaurants_path %>
+</div>
+
+<br>
+<br>

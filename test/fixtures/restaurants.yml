@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: Restaurant1
+  location: Location1
+
+
+two:
+  title: Restaurant2
+  location: Location2
+
+three:
+  title: Restaurant3
+  location: Location3

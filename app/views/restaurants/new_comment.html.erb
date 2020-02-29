@@ -1,0 +1,31 @@
+<div class="container container-table">
+  <div class="text-center col-md-4 col-md-offset-4" >
+    <h1> Leave Comments</h1>
+     <h3><i> for </i></h3>
+    <h3><%= @restaurant.title %></h3>
+  </div>
+</div>
+
+<div class="container container-table">
+  <div class="text-center col-md-4 col-md-offset-4" >
+
+      <strong>Location:</strong>
+      <%= @restaurant.location %>
+     <br>
+  <font color = "red" ><%= alert %></font>
+  
+  <div class="row">
+    <div class="col">
+    <%= render 'comments/form', comment: Comment.new, post: @post %>
+    </div>
+  </div>
+   
+   </div>
+</div>
+
+<div class="d-inline mx-auto center">
+   <%= link_to 'Main page', restaurants_path %>
+</div>
+
+<br>
+<br>

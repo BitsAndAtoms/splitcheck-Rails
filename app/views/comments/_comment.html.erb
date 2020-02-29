@@ -1,0 +1,9 @@
+<div>
+<ul class="list-group">
+ <li class="list-group-item">
+        "<%= comment.body %>"
+        <br><em>comment received for  "<%= link_to "#{Restaurant.find(comment.restaurant_id).title}", Restaurant.find(comment.restaurant_id) %>" 
+        <%= time_ago_in_words(comment.created_at) %> ago</em>
+ </li>
+ </div>
+

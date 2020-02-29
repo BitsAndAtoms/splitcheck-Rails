@@ -1,0 +1,78 @@
+
+<div class="container container-table">
+        <div class="text-center col-md-4 col-md-offset-4" >
+           <h1> 🥂 Restaurants for the Split! 🍔 </h1>
+           <p id="notice" ><%= notice %></p>
+        </div>
+</div>
+
+<div data-no-turbolink ="true" class = 'form-group'>
+  <%= form_tag(restaurants_path, method: :get) do %>
+    <div class="d-inline mx-auto center">
+      <pre><b>Title :&nbsp</b> <%= text_field_tag :title %><b>&nbsp &nbsp Location :&nbsp</b><%= text_field_tag :location%></pre>
+      <%= button_tag " Search", type: 'submit', class: "glyphicon glyphicon-search" %>
+    </div>
+  <% end %>
+</div>
+
+<table class="table table-striped">
+
+  <thead class="thead-light">
+    <tr>
+      <th>Title</th>
+      <th>Location</th>
+      <th>Upvotes</th>
+      <th>Downvotes</th>
+        <% if user_signed_in? %>
+         <th>Favourites</th>
+         <th>Show</th>
+         <th>Comment</th>
+         <th>Edit</th>
+        <% else%>  
+         <th>Show</th>
+        <% end%>      
+      <th colspan="0"></th>
+    </tr>
+  </thead>
+  
+
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td id="putonleft"><%= restaurant.title %></td>
+        <td id="putonleft"><%= restaurant.location %></td>
+
+        <td id="putonleft"><%= link_to '<i class="glyphicon glyphicon-thumbs-up"></i> '.html_safe, :controller => "votes", :action => "up_vote", :id => restaurant.id %> <%=restaurant.up_votes%></td>
+        
+       <td id="putonleft"><%= link_to '<i class="glyphicon glyphicon-thumbs-down"></i> '.html_safe,:controller => "votes", :action => "down_vote", :id => restaurant.id %><%=restaurant.down_votes%></td>
+    
+     <% if user_signed_in? %> 
+       <% if restaurant.get_favorites(restaurant.id,current_user.id) == 1 %> 
+          <td id="putonleft"><%= link_to '<i class="glyphicon glyphicon-star"></i> '.html_safe, :controller => "favorites", :action => "select_favorite", :id => restaurant.id %> Fav'd </td>
+      <% else %> 
+         <td id="putonleft"><%= link_to '<i class="glyphicon glyphicon-star-empty"></i> '.html_safe, :controller => "favorites", :action => "select_favorite", :id => restaurant.id %></td>
+      <% end %> 
+     <% end %> 
+     
+     <td id="putonleft"><%= link_to 'Show', restaurant %></td>
+     
+        <% if user_signed_in? %> 
+          <td id="putonleft"><%= link_to 'Comment', new_comment_restaurant_path(restaurant) %></td>
+          <td id="putonleft"><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+        <% end %>
+  
+      </tr>
+    <% end %> 
+ </tbody>
+
+
+</table>
+
+
+<div class="d-inline mx-auto center">
+  <%= link_to '<i class="glyphicon glyphicon-home"></i> New'.html_safe, new_restaurant_path, :class => "button2" %>&nbsp&nbsp&nbsp&nbsp
+  <%= link_to 'Main page', restaurants_path %>
+</div>
+
+<br>
+<br>
